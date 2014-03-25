@@ -11,6 +11,8 @@
     <RootNamespace>Cassandra</RootNamespace>
     <AssemblyName>Cassandra</AssemblyName>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,6 +50,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Threading">
+      <HintPath>..\packages\TaskParallelLibrary.1.0.2856.0\lib\Net35\System.Threading.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +75,7 @@
       <Link>Snappy\SnappyInternalUtils.cs</Link>
     </Compile>
     <Compile Include="AsyncResult.cs" />
+    <Compile Include="BigInteger.cs" />
     <Compile Include="IAuthenticator.cs" />
     <Compile Include="BEBinaryWriterFrame.cs" />
     <Compile Include="BoundStatement.cs" />
@@ -235,6 +241,7 @@
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="README.rst" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

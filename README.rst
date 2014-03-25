@@ -1,3 +1,7 @@
+DO NOT USE; CURRENTLY DOES NOT WORK
+
+A port to .net 3.5 for use on the Unity 3D platform
+
 Datastax C# Driver for Apache Cassandra
 =======================================
 

@@ -297,6 +297,22 @@ namespace System.IO
         }
 
         /// <summary>
+        /// modified from http://stackoverflow.com/questions/5730863/how-to-use-stream-copyto-on-net-framework-3-5/5730893#5730893
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="output"></param>
+        public void CopyTo(Stream input, Stream output)
+        {
+            byte[] buffer = new byte[16 * 1024]; // Fairly arbitrary size
+            int bytesRead;
+
+            while ((bytesRead = input.Read(buffer, 0, buffer.Length)) > 0)
+            {
+                output.Write(buffer, 0, bytesRead);
+            }
+        }
+
+        /// <summary>
         /// Writes the entire stream into destination, regardless of Position, which remains unchanged.
         /// </summary>
         /// <param name="destination">The stream to write the content of this stream to</param>
@@ -304,7 +320,7 @@ namespace System.IO
         {            
             long initialpos = Position;
             Position = 0;
-            this.CopyTo(destination);
+            CopyTo(this, destination);
             Position = initialpos;
         }
 
